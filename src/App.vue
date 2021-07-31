@@ -1,30 +1,52 @@
 <template>
-  <div id="nav">
-    <router-link to="/">Home</router-link> |
-    <router-link to="/about">About</router-link>
-  </div>
+  <the-header></the-header>
   <router-view />
+  <the-footer></the-footer>
 </template>
-
+<script>
+import TheHeader from "./components/Bases/TheHeader.vue";
+import TheFooter from "./components/Bases/TheFooter.vue";
+export default {
+  components: {
+    TheHeader,
+    TheFooter,
+  },
+};
+</script>
 <style lang="scss">
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
+:root {
+  --b-color: #212121;
+  --y-color: #ffff00;
+  --y-color-alpha: #ffff00b2;
+  --p-font-size: 17px;
+  --p-font-size-ss: 15px;
+  --h1-font-size: 24px;
+  --h1-font-size-ss: 22px;
+  --h2-font-size: 22px;
+  --h2-font-size-ss: 20px;
+  --h3-font-size: 20px;
+  --h3-font-size-ss: 18px;
+  --h4-font-size: 18px;
+  --h4-font-size-ss: 16px;
 }
-
-#nav {
-  padding: 30px;
-
-  a {
-    font-weight: bold;
-    color: #2c3e50;
-
-    &.router-link-exact-active {
-      color: #42b983;
-    }
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+body {
+  font-family: "Georama", sans-serif;
+}
+.container {
+  max-width: 1200px;
+  width: 95%;
+  margin: 0 auto;
+}
+@media (max-width: 770px) {
+  .container {
+    width: 100%;
+    padding: 5px 0;
+    margin: 0 auto;
   }
 }
 </style>
