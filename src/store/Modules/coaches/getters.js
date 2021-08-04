@@ -5,4 +5,7 @@ export default {
     hasCoaches(state) {
         return state.coaches && state.coaches.length > 0;
     },
+    coachesCount(state) {
+        return state.coaches.length;
+    },
 };

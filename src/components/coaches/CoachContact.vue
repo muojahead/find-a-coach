@@ -1,9 +1,5 @@
 <template>
-  <div class="title">
-    <div class="container">
-      <h2>Contact Coach</h2>
-    </div>
-  </div>
+  <page-title back title="Contact Coach"></page-title>
 </template>
 <style scoped>
 .title {

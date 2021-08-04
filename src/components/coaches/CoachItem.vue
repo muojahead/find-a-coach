@@ -133,12 +133,7 @@ export default {
     height: 150px;
     border-radius: 50%;
   }
-  .coach .head .img img {
-    width: 317%;
-    position: absolute;
-    top: -202px;
-    left: -165px;
-  }
+
   .coach .body .buttons button {
     margin: 3px;
     padding: 3px 6px;

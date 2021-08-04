@@ -1,10 +1,6 @@
 <template>
   <div>
-    <div class="title">
-      <div class="container">
-        <h2>Coaches List</h2>
-      </div>
-    </div>
+    <page-title title="Coaches List"></page-title>
     <div class="container">
       <the-filter @change-filter="setFilter"></the-filter>
     </div>
@@ -31,10 +27,12 @@
 <script>
 import coachItem from "./CoachItem.vue";
 import theFilter from "../Bases/TheFilter.vue";
+import PageTitle from "../Bases/PageTitle.vue";
 export default {
   components: {
     coachItem,
     theFilter,
+    PageTitle,
   },
   data() {
     return {
@@ -70,7 +68,7 @@ export default {
         ) {
           return true;
         }
-        if (this.activeFilters.uiux && coach.jobFilter.includes("uiux")) {
+        if (this.activeFilters.uiux && coach.jobFilter.includes("UI/UX")) {
           return true;
         }
         return false;
@@ -83,17 +81,6 @@ export default {
 };
 </script>
 <style scoped>
-.title {
-  width: 100%;
-  height: 60px;
-  text-align: center;
-  background-color: var(--b-color);
-  color: #fff;
-  font-size: var(--h2-fontSize);
-  border-top: 0.5px solid gray;
-  line-height: 60px;
-}
-
 /* Start Coaches Area */
 .coaches {
   display: grid;

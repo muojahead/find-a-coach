@@ -30,6 +30,10 @@ export default {
   --h3-font-size-ss: 18px;
   --h4-font-size: 18px;
   --h4-font-size-ss: 16px;
+  scroll-behavior: smooth;
+  -webkit-scroll-behavior: smooth;
+  -moz-scroll-behavior: smooth;
+  -o-scroll-behavior: smooth;
 }
 * {
   padding: 0;

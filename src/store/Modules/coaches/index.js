@@ -60,7 +60,7 @@ export default {
                     id: "c4",
                     name: "Haidy Yhia",
                     job: "UI/UX Desginer",
-                    jobFilter: "uiux",
+                    jobFilter: "UI/UX",
                     image: "https://randomuser.me/api/portraits/women/8.jpg",
                     age: 22,
                     email: "haidy.yhia@gmail.com",

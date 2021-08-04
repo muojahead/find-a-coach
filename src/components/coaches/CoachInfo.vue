@@ -1,10 +1,7 @@
 <template>
   <div>
-    <div class="title">
-      <div class="container">
-        <h2>Coach Info</h2>
-      </div>
-    </div>
+    <page-title back title="Coach Info"></page-title>
+
     <div class="container">
       <div class="coach">
         <div class="header">

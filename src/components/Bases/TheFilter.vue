@@ -16,8 +16,8 @@
           <label for="fullstack">Full-stack</label>
         </div>
         <div class="filter">
-          <input type="checkbox" checked @change="setFilters" id="uiux" />
-          <label for="uiux">UI/UX</label>
+          <input type="checkbox" checked @change="setFilters" id="UI/UX" />
+          <label for="UI/UX">UI/UX</label>
         </div>
       </form>
     </div>
