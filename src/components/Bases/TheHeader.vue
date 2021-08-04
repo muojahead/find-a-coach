@@ -10,7 +10,10 @@
         <div class="collapseBtn">
           <button class="navbar-toggler" type="button" @click="toggleLinks">
             <span class="navbar-toggler-icon">
-              <i class="fa fa-bars" aria-hidden="true"></i>
+              <i
+                :class="activeMenu ? 'fas fa-times' : 'fa fa-bars'"
+                aria-hidden="true"
+              ></i>
             </span>
           </button>
         </div>
@@ -37,9 +40,15 @@
 </template>
 <script>
 export default {
+  data() {
+    return {
+      activeMenu: false,
+    };
+  },
   methods: {
     toggleLinks() {
       this.$refs.toggleMenu.classList.toggle("active");
+      this.activeMenu = !this.activeMenu;
     },
   },
 };
