@@ -15,91 +15,106 @@
           <div class="box-form">
             <form @submit.prevent="sendCoachData">
               <div class="inputs-group">
-                <div class="custom-input">
+                <div class="custom-input" :class="{ invalid: !name.isValid }">
                   <input
+                    :placeholder="name.isValid ? '' : name.errorMsg"
                     type="text"
                     class="floating__input"
                     id="name"
                     autocomplete="off"
-                    v-model="name"
+                    v-model.trim="name.val"
                   />
                   <label for="name">Coach Name </label>
                 </div>
                 <!--  -->
-                <div class="custom-input">
+                <div class="custom-input" :class="{ invalid: !email.isValid }">
                   <input
+                    :placeholder="email.isValid ? '' : email.errorMsg"
                     type="text"
                     class="floating__input"
                     id="email"
                     autocomplete="off"
-                    v-model="email"
+                    v-model.trim="email.val"
                   />
                   <label for="email">Coach Email </label>
                 </div>
                 <!--  -->
-                <div class="custom-input">
+                <div class="custom-input" :class="{ invalid: !phone.isValid }">
                   <input
+                    :placeholder="phone.isValid ? '' : phone.errorMsg"
                     type="text"
                     class="floating__input"
                     id="phone"
                     autocomplete="off"
-                    v-model="phone"
+                    v-model.trim="phone.val"
                   />
                   <label for="phone">Coach st. Phone </label>
                 </div>
                 <!--  -->
-                <div class="custom-input">
+                <div
+                  class="custom-input"
+                  :class="{ invalid: !phoneTow.isValid }"
+                >
                   <input
+                    :placeholder="phoneTow.isValid ? '' : phoneTow.errorMsg"
                     type="text"
                     class="floating__input"
                     id="phoneTow"
                     autocomplete="off"
-                    v-model="phoneTow"
+                    v-model.trim="phoneTow.val"
                   />
                   <label for="phoneTow">Coach nd. Phone </label>
                 </div>
                 <!--  -->
-                <div class="custom-input">
+                <div
+                  class="custom-input"
+                  :class="{ invalid: !website.isValid }"
+                >
                   <input
+                    :placeholder="website.isValid ? '' : website.errorMsg"
                     type="text"
                     class="floating__input"
                     id="website"
                     autocomplete="off"
-                    v-model="website"
+                    v-model.trim="website.val"
                   />
                   <label for="website">Coach Website </label>
                 </div>
                 <!--  -->
-                <div class="custom-input">
+                <div class="custom-input" :class="{ invalid: !rate.isValid }">
                   <input
+                    :placeholder="rate.isValid ? '' : rate.errorMsg"
                     type="text"
                     class="floating__input"
                     id="rate"
                     autocomplete="off"
-                    v-model="rate"
+                    v-model.trim="rate.val"
                   />
                   <label for="rate">Hourly Rate</label>
                 </div>
                 <!--  -->
-                <div class="custom-input">
+                <div class="custom-input" :class="{ invalid: !age.isValid }">
                   <input
+                    :placeholder="age.isValid ? '' : age.errorMsg"
                     type="number"
                     class="floating__input"
                     id="age"
                     autocomplete="off"
-                    v-model="age"
+                    v-model.trim="age.val"
                   />
                   <label for="age">Coach Age </label>
                 </div>
                 <!--  -->
 
-                <div class="upload__input">
+                <div class="upload__input" :class="{ invalid: !image.isValid }">
                   <input type="file" id="imgUpload" @change="hasImage" />
-                  <label for="imgUpload">{{ fileInputName }}</label>
+                  <label for="imgUpload">
+                    {{ image.isValid ? fileInputName : image.errorMsg }}</label
+                  >
                 </div>
                 <!--  -->
-                <div class="custom-input">
-                  <select id="job" v-model="job">
+                <div class="custom-input" :class="{ invalid: !job.isValid }">
+                  <select id="job" v-model.trim="job.val">
                     <option selected disabled>Choose</option>
                     <option v-for="job in jobsList" :key="job" :value="job">
                       {{
@@ -107,11 +122,16 @@
                       }}
                     </option>
                   </select>
-                  <label for="job">Job Title</label>
+                  <label for="job">
+                    {{ exp.isValid ? "Job Title" : job.errorMsg }}</label
+                  >
                 </div>
                 <!--  -->
-                <div class="custom-input">
-                  <select id="location" v-model="location">
+                <div
+                  class="custom-input"
+                  :class="{ invalid: !location.isValid }"
+                >
+                  <select id="location" v-model.trim="location.val">
                     <option selected disabled>Choose</option>
                     <option
                       v-for="country in countries"
@@ -121,11 +141,21 @@
                       {{ country + ", Egypt" }}
                     </option>
                   </select>
-                  <label for="location">Coach Location</label>
+                  <label for="location">
+                    {{
+                      exp.isValid ? "Coach Location" : location.errorMsg
+                    }}</label
+                  >
                 </div>
                 <!--  -->
-                <div class="custom-input">
-                  <select id="freelanceStatus" v-model="freelanceStatus">
+                <div
+                  class="custom-input"
+                  :class="{ invalid: !freelanceStatus.isValid }"
+                >
+                  <select
+                    id="freelanceStatus"
+                    v-model.trim="freelanceStatus.val"
+                  >
                     <option selected disabled>Choose</option>
                     <option
                       v-for="freelance in ['avaliable', 'unavailable']"
@@ -135,11 +165,17 @@
                       {{ freelance }}
                     </option>
                   </select>
-                  <label for="freelanceStatus">Freelance Status</label>
+                  <label for="freelanceStatus">
+                    {{
+                      exp.isValid
+                        ? "Freelance Status"
+                        : freelanceStatus.errorMsg
+                    }}</label
+                  >
                 </div>
                 <!--  -->
-                <div class="custom-input">
-                  <select id="exp" v-model="exp">
+                <div class="custom-input" :class="{ invalid: !exp.isValid }">
+                  <select id="exp" v-model.trim="exp.val">
                     <option selected disabled>Choose</option>
                     <option
                       v-for="expVal in expValuesList"
@@ -149,15 +185,23 @@
                       {{ expVal }}
                     </option>
                   </select>
-                  <label for="exp">Coach Experience</label>
+                  <label for="exp">
+                    {{ exp.isValid ? "Coach Experience" : exp.errorMsg }}</label
+                  >
                 </div>
                 <!--  -->
               </div>
-              <div class="dicription">
-                <textarea id="coachDisc" rows="5" v-model="disc"></textarea>
+              <div class="dicription" :class="{ invalid: !disc.isValid }">
+                <textarea
+                  id="coachDisc"
+                  :placeholder="disc.isValid ? '' : disc.errorMsg"
+                  rows="5"
+                  v-model.trim="disc.val"
+                ></textarea>
                 <label for="coachDisc">Coach Description</label>
               </div>
               <div class="send__data">
+                <p v-if="formIsValid">Fix The errors Above and try again</p>
                 <button-base to="/" type="submit">Add New Coach</button-base>
               </div>
             </form>
@@ -172,21 +216,73 @@ import country_list from "./countries.js";
 export default {
   data() {
     return {
-      name: "",
-      email: "",
-      phone: "",
-      phoneTow: "",
-      website: "",
+      name: {
+        val: "",
+        isValid: true,
+        errorMsg: "Insert Your Frist and Second name",
+      },
+      email: {
+        val: "",
+        isValid: true,
+        errorMsg: "Insert Your Email Addrees",
+      },
+      phone: {
+        val: "",
+        isValid: true,
+        errorMsg: "Insert Your Phone Number or Just add -",
+      },
+      phoneTow: {
+        val: "",
+        isValid: true,
+        errorMsg: "Insert Your Phone Number or Just add -",
+      },
+      website: {
+        val: "",
+        isValid: true,
+        errorMsg: "Insert Your Website Link or Just add -",
+      },
       countries: country_list,
-      age: "",
-      location: [],
-      freelanceStatus: [],
-      image: "",
-      exp: [],
+      age: {
+        val: "",
+        isValid: true,
+        errorMsg: "Insert Your Age",
+      },
+      location: {
+        val: "",
+        isValid: true,
+        errorMsg: "Select Your Location",
+      },
+      freelanceStatus: {
+        val: "",
+        isValid: true,
+        errorMsg: "Select Your Freelancing Status",
+      },
+      image: {
+        val: "",
+        isValid: true,
+        errorMsg: "Upload Your Image",
+      },
+      exp: {
+        val: "",
+        isValid: true,
+        errorMsg: "Select Your Exeprince Years Count",
+      },
       hasImageMsg: false,
-      rate: [],
-      job: "",
-      disc: "",
+      rate: {
+        val: "",
+        errorMsg: "Insert Your Hourly Rate Price",
+        isValid: true,
+      },
+      job: {
+        val: "",
+        isValid: true,
+        errorMsg: "Select Your Job Title",
+      },
+      disc: {
+        val: "",
+        isValid: true,
+        errorMsg: "Insert Your Description",
+      },
       jobsList: ["frontend", "backend", "fullstack", "UI/UX"],
       expValuesList: [
         "1 Year",
@@ -200,37 +296,140 @@ export default {
         "9 Years",
         "10+ Years",
       ],
+      formIsValid: false,
     };
   },
   computed: {
     fileInputName() {
-      return this.hasImageMsg ? this.image.name : "Coach Picture";
+      return this.hasImageMsg ? this.image.val.name : "Coach Picture";
     },
   },
   methods: {
+    validaiteForm() {
+      this.formIsValid = false;
+      if (this.name.val === "") {
+        this.name.isValid = false;
+        this.formIsValid = false;
+      } else {
+        this.name.isValid = true;
+      }
+      if (this.email.val === "") {
+        this.email.isValid = false;
+        this.formIsValid = false;
+      } else {
+        this.email.isValid = true;
+      }
+      if (this.age.val === "") {
+        this.age.isValid = false;
+        this.formIsValid = false;
+      } else {
+        this.age.isValid = true;
+      }
+      if (this.phone.val === "") {
+        this.phone.isValid = false;
+        this.formIsValid = false;
+      } else if (this.phone.val === "-") {
+        this.phone.val = "not-available";
+
+        this.phone.isValid = true;
+      } else {
+        this.phone.isValid = true;
+      }
+      if (this.phoneTow.val === "") {
+        this.phoneTow.isValid = false;
+        this.formIsValid = false;
+      } else if (this.phoneTow.val === "-") {
+        this.phoneTow.val = "not-available";
+
+        this.phoneTow.isValid = true;
+      } else {
+        this.phoneTow.isValid = true;
+      }
+      if (this.website.val === "") {
+        this.website.isValid = false;
+        this.formIsValid = false;
+      } else if (this.website.val === "-") {
+        this.website.val = "not-available";
+
+        this.website.isValid = true;
+      } else {
+        this.website.isValid = true;
+      }
+      if (this.disc.val === "") {
+        this.disc.isValid = false;
+        this.formIsValid = false;
+      } else {
+        this.disc.isValid = true;
+        this.formIsValid = true;
+      }
+      if (this.image.val === "") {
+        this.image.isValid = false;
+        this.formIsValid = false;
+      } else {
+        this.image.isValid = true;
+      }
+      if (!this.job.val || this.job.val.length < 0) {
+        this.job.isValid = false;
+        this.formIsValid = false;
+      } else {
+        this.job.isValid = true;
+      }
+      if (!this.location.val || this.location.val.length < 0) {
+        this.location.isValid = false;
+        this.formIsValid = false;
+      } else {
+        this.location.isValid = true;
+      }
+      if (!this.freelanceStatus.val || this.freelanceStatus.val.length < 0) {
+        this.freelanceStatus.isValid = false;
+        this.formIsValid = false;
+      } else {
+        this.freelanceStatus.isValid = true;
+      }
+      if (!this.exp.val || this.exp.val.length < 0) {
+        this.exp.isValid = false;
+        this.formIsValid = false;
+      } else {
+        this.exp.isValid = true;
+      }
+
+      if (!this.rate.val || this.rate.val.length < 0) {
+        this.rate.isValid = false;
+        this.formIsValid = false;
+      } else {
+        this.rate.isValid = true;
+      }
+    },
     sendCoachData() {
+      this.validaiteForm();
+      if (!this.formIsValid) {
+        return;
+      }
       const coachesCount = this.$store.getters["coaches/coachesCount"];
+
       const newCoachData = {
         id: `c${coachesCount + 1}`,
-        name: this.name,
+        name: this.name.val,
         job:
-          this.job == "UI/UX"
-            ? this.job + " Desginer"
-            : this.job + " Developer",
-        jobFilter: this.job,
+          this.job.val == "UI/UX"
+            ? this.job.val + " Desginer"
+            : this.job.val + " Developer",
+        jobFilter: this.job.val,
         image: `https://randomuser.me/api/portraits/men/${
           coachesCount + 1
         }.jpg`,
-        age: this.age,
-        email: this.email,
-        location: this.location + ", Egypt",
-        website: this.website,
-        phoneOne: this.phone,
-        phoneTow: this.phoneTow,
-        exp: this.exp,
-        rate: this.rate,
-        freelance: this.freelanceStatus,
-        disc: this.disc,
+        age: this.age.val,
+        email: this.email.val,
+        location: this.location.val + ", Egypt",
+        website: this.website.val.startsWith("http")
+          ? "https://" + this.website.val
+          : this.website.val,
+        phoneOne: this.phone.val,
+        phoneTow: this.phoneTow.val,
+        exp: this.exp.val,
+        rate: parseInt(this.rate.val),
+        freelance: this.freelanceStatus.val,
+        disc: this.disc.val,
       };
       this.$store.dispatch("coaches/addCoach", newCoachData);
       this.$router.push("/");
@@ -239,7 +438,7 @@ export default {
       this.hasImageMsg = true;
       var files = e.target.files || e.dataTransfer.files;
       if (!files.length) return;
-      this.image = files[0];
+      this.image.val = files[0];
     },
   },
 };
@@ -327,6 +526,7 @@ export default {
   font-size: 16px;
   transition: 0.1s linear;
 }
+
 .box-container .box-form form .upload__input {
   width: 100%;
   position: relative;
@@ -336,7 +536,6 @@ export default {
   display: none;
 }
 .box-container .box-form form .upload__input label {
-  /*  */
   padding: 20px 12px 17px 3px;
   width: 100%;
   display: block;
@@ -401,6 +600,24 @@ export default {
   font-size: 13px;
   font-size: 16px;
   transition: 0.1s linear;
+}
+.box-container .box-form form .send__data p {
+  margin: 10px auto;
+  border: 1px solid red;
+  padding: 4px 8px;
+  border-radius: 3px;
+  color: #fff;
+}
+.box-container .box-form form .invalid input,
+.box-container .box-form form .invalid label,
+.box-container .box-form form .invalid select,
+.box-container .box-form form .invalid textarea {
+  border-color: red !important;
+}
+.box-container .box-form form .custom-input input:focus,
+.box-container .box-form form .custom-input select:focus,
+.box-container .box-form form .custom-input textarea:focus {
+  border-color: gray !important;
 }
 @media (max-width: 992px) {
   .box-container .box-form form .dicription label {

@@ -27,11 +27,12 @@
               </p>
               <p>
                 Website:
-                <span
-                  ><a :href="selectedCoach.website">{{
+                <span>
+                  <a :href="selectedCoach.website" v-if="actLink">{{
                     selectedCoach.website
-                  }}</a></span
-                >
+                  }}</a>
+                  <span v-else>{{ selectedCoach.website }}</span>
+                </span>
               </p>
               <p>
                 st. Phone: <span>{{ selectedCoach.phoneOne }}</span>
@@ -43,15 +44,8 @@
                 Exeprince: <span>{{ selectedCoach.exp }}</span>
               </p>
               <p>
-                Rate:
-                <span>
-                  <i
-                    class="fa fa-star"
-                    aria-hidden="true"
-                    v-for="star in selectedCoach.rate"
-                    :key="star"
-                  ></i>
-                </span>
+                Hourly Rate:
+                <span> {{ selectedCoach.rate }} Dollars in Hour</span>
               </p>
               <p>
                 Freelance:
@@ -92,6 +86,16 @@ export default {
   computed: {
     coachContactLink() {
       return "/coaches/" + this.id + "/contact";
+    },
+    actLink() {
+      if (
+        this.selectedCoach.website.includes("http") ||
+        this.selectedCoach.website.includes("www")
+      ) {
+        return true;
+      } else {
+        return false;
+      }
     },
   },
 };

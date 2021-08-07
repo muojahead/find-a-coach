@@ -8,13 +8,8 @@
         <h2>{{ name }}</h2>
         <p>{{ job }}</p>
       </div>
-      <div class="rate">
-        <i
-          class="fa fa-star"
-          aria-hidden="true"
-          v-for="star in rate"
-          :key="star"
-        ></i>
+      <div class="rate" title="Hourly Rate">
+        <i class="far fa-clock"></i> ${{ rate }}
       </div>
     </div>
     <div class="body">
