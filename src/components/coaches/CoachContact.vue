@@ -3,8 +3,12 @@
     <page-title back title="Contact Coach"></page-title>
     <div class="container">
       <div class="contact-box">
-        <div class="contact-title">Contact {{ coachName }}</div>
+        <div class="contact-title">Send Message to {{ coachName }}</div>
         <form @submit.prevent="sendMessage">
+          <div class="custom-input">
+            <label for="name">Your Name</label>
+            <input type="text" id="name" v-model="name" />
+          </div>
           <div class="custom-input">
             <label for="email">Your Email</label>
             <input type="email" id="email" v-model="email" />
@@ -26,7 +30,7 @@
             Your Message Successfully Sent to The Coach, Thank you.
           </div>
           <div class="actions">
-            <button-base type="submit">Send Message</button-base>
+            <button-base type="submit" to="/">Send Message</button-base>
           </div>
         </form>
       </div>
@@ -39,6 +43,7 @@ export default {
   data() {
     return {
       email: "",
+      name: "",
       msg: "",
       formIsValid: true,
       msgDoneSent: false,
@@ -58,6 +63,16 @@ export default {
         this.formIsValid = false;
         return;
       }
+      const newRquest = {
+        name: this.name,
+        coachId: this.id,
+        email: this.email,
+        msg: this.msg,
+      };
+      this.$store.dispatch("requests/requstData", newRquest);
+      this.name = "";
+      this.email = "";
+      this.msg = "";
       this.msgDoneSent = true;
       setTimeout(() => {
         this.msgDoneSent = false;
