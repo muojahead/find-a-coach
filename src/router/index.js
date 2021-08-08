@@ -4,9 +4,11 @@ import CoachInfo from "../components/coaches/CoachInfo.vue";
 import CoachContact from "../components/coaches/CoachContact.vue";
 import RegisterCoach from "../components/requests/RegisterCoach.vue";
 import Requests from "../components/requests/Requests.vue";
+import LogIn from "../components/LogIn.vue";
+import sginup from "../components/sginup.vue";
 const routes = [{
         path: "/",
-        redirect: "/coaches",
+        component: LogIn,
     },
     { path: "/coaches", component: CoachesList },
     { path: "/register-coach", component: RegisterCoach },
@@ -17,6 +19,7 @@ const routes = [{
         props: true,
     },
     { path: "/coaches/:id/contact", props: true, component: CoachContact },
+    { path: "/signup", component: sginup },
 ];
 
 const router = createRouter({

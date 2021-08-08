@@ -42,12 +42,16 @@ export default {
         fullstack: true,
         uiux: true,
       },
+      isLogedIn: false,
     };
   },
   methods: {
     setFilter(updatedFilter) {
       this.activeFilters = updatedFilter;
     },
+  },
+  created() {
+    this.isLogedIn = this.$store.getters.logedIn;
   },
   computed: {
     filteredCoaches() {
