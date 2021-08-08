@@ -8,7 +8,7 @@
       <form @submit.prevent="login">
         <div class="custom-input">
           <input type="text" id="username" v-model="username" />
-          <label for="username">Username</label>
+          <label for="username">Email</label>
         </div>
         <div class="custom-input">
           <input type="password" id="password" v-model="password" />
@@ -56,9 +56,8 @@ export default {
       }
       this.accounts.forEach((account) => {
         if (
-          account.username === this.username ||
-          (account.email === this.username &&
-            account.password === this.password)
+          account.email === this.username &&
+          account.password === this.password
         ) {
           this.$router.push("/coaches");
           const loged = true;

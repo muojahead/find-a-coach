@@ -16,15 +16,6 @@
         <div class="custom-input">
           <input
             @change="validator"
-            type="text"
-            id="username"
-            v-model.trim="username"
-          />
-          <label for="username">username</label>
-        </div>
-        <div class="custom-input">
-          <input
-            @change="validator"
             type="email"
             id="email"
             v-model.trim="email"
@@ -66,7 +57,6 @@ export default {
     return {
       fullname: "",
       email: "",
-      username: "",
       password: "",
       rePassword: "",
       errorMsg: "",
@@ -85,15 +75,6 @@ export default {
         const msg =
           "Please Insert Your Full name with Max Chracters 20 and not less 5";
 
-        this.errorMsg = msg;
-      } else if (
-        this.username === "" ||
-        this.username.length > 15 ||
-        this.username.length < 1
-      ) {
-        this.error = true;
-        const msg =
-          "Please enter username  with Max Chracters 15 and not less 1";
         this.errorMsg = msg;
       } else if (this.email === "" || !this.email.includes("@")) {
         this.error = true;
@@ -128,7 +109,6 @@ export default {
       const userData = {
         fullname: this.fullname,
         email: this.email,
-        username: this.username,
         password: this.password,
         rePassword: this.rePassword,
         id: this.$store.getters["account/usersCount"],
