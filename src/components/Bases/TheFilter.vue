@@ -57,6 +57,9 @@ export default {
   border-bottom: 0.5px solid gray;
   display: flex;
 }
+.filters *{
+  color: #fff;
+}
 .filters .filters-title {
   width: 20%;
   text-align: center;

@@ -44,6 +44,10 @@ body {
   font-family: "Georama", sans-serif;
   background-color:#0D1118;
 }
+input:not([type='checkbox']){
+  border: .5px solid #010409;
+  background-color: #0D1118;
+}
 .container {
   max-width: 1200px;
   width: 95%;
