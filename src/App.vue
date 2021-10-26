@@ -45,8 +45,8 @@ body {
   background-color:#0D1118;
 }
 input:not([type='checkbox']){
-  border: .5px solid #010409;
-  background-color: #0D1118;
+  border: .5px solid #010409 !important;
+  background-color: #0D1118 !important;
 }
 .container {
   max-width: 1200px;
