@@ -540,7 +540,7 @@ export default {
   width: 100%;
   display: block;
   background-color: #0D1118;
-  border: 2px solid gray;
+  border: .5px solid #010409;
   font-size: 16px;
   border-radius: 3px;
   outline: none;
