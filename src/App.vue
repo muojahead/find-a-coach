@@ -18,8 +18,8 @@ export default {
 <style lang="scss">
 :root {
   --b-color: #212121;
-  --y-color: #ffff00;
-  --y-color-alpha: #ffff00b2;
+  --y-color: #1ac412;
+  --y-color-alpha: #1ac412b2;
   --p-font-size: 17px;
   --p-font-size-ss: 15px;
   --h1-font-size: 24px;

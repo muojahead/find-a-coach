@@ -539,7 +539,7 @@ export default {
   padding: 20px 12px 17px 3px;
   width: 100%;
   display: block;
-  background-color: #70707093;
+  background-color: #0D1118;
   border: 2px solid gray;
   font-size: 16px;
   border-radius: 3px;
@@ -573,7 +573,7 @@ export default {
   padding: 25px 12px 17px 12px;
   width: 100%;
   display: block;
-  background-color: #70707093;
+  background-color: #0D1118;
   border: 2px solid gray;
   font-size: 16px;
   border-radius: 3px;
@@ -588,7 +588,7 @@ export default {
 .box-container .box-form form .dicription label {
   position: absolute;
   user-select: none;
-  background-color: #4f4f4f;
+  background-color: #0D1118;
   transform: translateY(-50%);
   width: 98.1%;
   padding-top: 5px;
