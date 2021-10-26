@@ -506,7 +506,7 @@ export default {
   padding: 18px 5px;
 }
 .box-container .box-form form .custom-input select option {
-  background-color: #fff;
+  background-color: var(--y-color);
   color: #000;
 }
 .box-container .box-form form .custom-input input:focus {
