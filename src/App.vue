@@ -44,7 +44,7 @@ body {
   font-family: "Georama", sans-serif;
   background-color:#0D1118;
 }
-input:not([type='checkbox']){
+input:not([type='checkbox']), select, textarea{
   border: .5px solid #010409 !important;
   background-color: #0D1118 !important;
 }
