@@ -129,7 +129,7 @@ export default {
   left: 0;
   width: 100%;
   justify-content: center;
-  background-color: #fff;
+  background-color: #0D1118;
 }
 .login-title,
 .errors {

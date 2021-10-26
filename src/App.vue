@@ -42,6 +42,7 @@ export default {
 }
 body {
   font-family: "Georama", sans-serif;
+  background-color:#0D1118;
 }
 .container {
   max-width: 1200px;
